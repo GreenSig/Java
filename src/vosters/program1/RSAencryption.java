@@ -1,5 +1,14 @@
 package vosters.program1;
 
+
+/** ********************************************************************* */
+/* This program gets input from a user and generates a public and private */
+/* key based on the unicode of the input. It then displays the encrypted  */
+/* message, decrypts it, and prints it again.                             */
+/* Created by Jacob Vosters                                               */
+/* Date last modified:  7/31/2015                                         */
+/************************************************************************ */
+
 public class RSAencryption {
 
 	public static void main(String[] args) {

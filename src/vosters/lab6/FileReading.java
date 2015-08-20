@@ -1,6 +1,7 @@
 package vosters.lab6;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,7 +19,8 @@ public class FileReading {
 		//Read in the file
 		///////////////////////////////////////
 		try {     
-			FileReader fr = new FileReader("C:/Users/N059251/workspace/labs/src/vosters/lab6/sample.txt");
+			//FileReader fr = new FileReader("C:/Users/N059251/workspace/labs/src/vosters/lab6/sample.txt"); //absolute path
+			FileReader fr = new FileReader(new File("").getAbsolutePath().concat("/src/vosters/lab6/sample.txt")); //rel path
 			BufferedReader br = new BufferedReader(fr);
 
 			String line;

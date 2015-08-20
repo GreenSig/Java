@@ -7,7 +7,7 @@ public class ComputeLoanAmount {
 		/** ******************************************************************** */
 		/* Program to calculate a loan amount based on a given interest rate,    */
 		/* payment amount, and number of years to repay                          */
-		/* Created by Jacob Vosters                                             */
+		/* Created by Jacob Vosters                                              */
 		/* Date last modified:  7/31/2015                                        */
 		/*********************************************************************** */
 		// variables representing input interest rate
