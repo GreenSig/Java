@@ -19,7 +19,7 @@ public class Arrays {
 				j++;
 			}
 		}
-
+		scan.close();
 
 		//display the numbers entered
 		i = 0;
