@@ -1,5 +1,13 @@
 package vosters.program3;
 
+/** ******************************************************************** */
+/* Starting at a URL inputted by the user, this will work through        */
+/* all hyperlinks and document which links are broken on which page.     */
+/* It will then display the broken link report to the user at the end.   */
+/* Created by Jacob Vosters                                              */
+/* Date last modified:  8/26/2015                                        */
+/*********************************************************************** */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,38 +47,34 @@ public class WebCrawler {
 						//Set the page the broken link is on to element 1 of the broken links array
 						curLink.add(pagesToVisit.get(0).toString());
 					}
-					
-					curLink.add(links.get(0));
+
+					curLink.add(links.get(0)); //Add the link to the brokenLinks array
 					links.remove(0);
 				} else {
 
 					//if the link is NOT broken
 					try {
-						//We don't want to actually go to external websites. So skip going to the goduke link for now
+						//We don't want to actually go to external websites (in Dr. Stevensons test environment), so skip going to the goduke link for now
 						if(links.get(0).indexOf("www.goduke") < 0){
-						
+
 							//Adds link to pages to visit (if it's not already on our list and we already haven't visited it)
 							if(!pagesToVisit.contains(new URL(pagesToVisit.get(0),links.get(0))) && !pagesVisited.contains(new URL(pagesToVisit.get(0),links.get(0)))){
 								pagesToVisit.add(new URL(pagesToVisit.get(0),links.get(0)));
 							}
-							
+
 						}
 					} catch (MalformedURLException e) {
 					}
 					links.remove(0);
 				}
 			}
-
-			//if(pagesToVisit.get(0).toString().indexOf("http://www.cs") != -1){ //only test these internal sites
-			pagesVisited.add(pagesToVisit.get(0)); //mark the page as already visited
+			//mark the page as already visited
+			pagesVisited.add(pagesToVisit.get(0)); 
 			pagesToVisit.remove(0);
-			//}
-
 		}
 
-
+		//display the broken links in the arraylist
 		displayBrokenLinkReport(brokenLinks);
-
 	}
 
 
