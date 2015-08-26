@@ -39,7 +39,7 @@ public class WebCrawler {
 						//Set the page the broken link is on to element 1 of the broken links array
 						curLink.add(pagesToVisit.get(0).toString());
 					}
-					System.out.println("On page: " + pagesToVisit.get(0).toString() + " ---- broken link: " + links.get(0));
+					
 					curLink.add(links.get(0));
 					links.remove(0);
 				} else {
@@ -48,10 +48,12 @@ public class WebCrawler {
 					try {
 						//We don't want to actually go to external websites. So skip going to the goduke link for now
 						if(links.get(0).indexOf("www.goduke") < 0){
+						
 							//Adds link to pages to visit (if it's not already on our list and we already haven't visited it)
-							if(!pagesToVisit.get(0).equals(new URL(pagesToVisit.get(0),links.get(0))) && !pagesVisited.contains(new URL(pagesToVisit.get(0),links.get(0)))){
+							if(!pagesToVisit.contains(new URL(pagesToVisit.get(0),links.get(0))) && !pagesVisited.contains(new URL(pagesToVisit.get(0),links.get(0)))){
 								pagesToVisit.add(new URL(pagesToVisit.get(0),links.get(0)));
 							}
+							
 						}
 					} catch (MalformedURLException e) {
 					}
@@ -80,7 +82,7 @@ public class WebCrawler {
 			// Get the HTML from the user
 			//*********************************************************************	
 			//URL startingURL = new URL(JOptionPane.showInputDialog("Please enter a URL: "));
-			startingURL = new URL("http://www.cs.uwec.edu/~stevende/cs145testpages/default.htm"); //Hard coded	
+			startingURL = new URL("http://www.cs.uwec.edu/~stevende/cs145testpages/default.htm"); //Hard coded			
 
 		} catch (MalformedURLException e) {
 			System.out.println("Bad URL");
@@ -99,6 +101,7 @@ public class WebCrawler {
 			// Read all the HTML of the page to a string, htmlContents
 			//*********************************************************************
 			con = webURL.openConnection();
+
 			InputStream is = con.getInputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 			String line;
@@ -109,7 +112,7 @@ public class WebCrawler {
 			br.close();			
 
 		} catch (IOException e) {
-			System.out.println("Error reading HTML " + webURL + "\nSkipped file");
+			System.out.println("Error reading HTML " + webURL + "\n      " + e);
 			System.exit(1);
 		}
 		//********************************
@@ -155,11 +158,11 @@ public class WebCrawler {
 		}
 
 		//*************************************
-		//Check to see if there is a 404 error
+		//Check to see if there is a 4xx client error 
 		HttpURLConnection httpProtocol = (HttpURLConnection)con;
 		try {
-			System.out.println(httpProtocol.getResponseCode()); //print page response code
-			if(httpProtocol.getResponseCode() == 404){
+			System.out.println(httpProtocol.getResponseCode() + "------------------" + new URL(baseURL,theHREF).toString()); //print page response code
+			if(httpProtocol.getResponseCode() >= 400){
 				return true;
 			}
 		} catch (IOException e) {
