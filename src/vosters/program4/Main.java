@@ -1,5 +1,6 @@
 package vosters.program4;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 public class Main {
@@ -7,17 +8,17 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Camera c = new Camera();
-		Sphere s = new Sphere(new Coord3D(-4.0, 1.0, 30.0), 4.0);
-		
-		BufferedImage picture = c.takePicture(s);
+		Sphere s = new Sphere(new Coord3D(-4.0, 1.0, 30.0), 4.0, new Color(0xD72448), 100.0);
+		Light l = new Light(new Coord3D(8.0, -4.0, 20.0), 0.5);
+		BufferedImage picture = c.takePicture(s, l);
 		
 		
 		new ImageDisplayPanel(picture);
 		
 		//tests for Coord3D and Sphere
 		Coord3D loc = new Coord3D(1.0, 1.0, 1.0);
-		Sphere myS = new Sphere(loc, 2);
-		System.out.println(myS);
+		//Sphere myS = new Sphere(loc, 2, new Color(0xD72448));
+		//System.out.println(myS);
 		
 		Coord3D loc2 = new Coord3D(2.0, 2.0, 2.0);
 		//loc = loc.add(loc2);

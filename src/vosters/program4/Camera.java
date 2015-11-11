@@ -23,7 +23,7 @@ public class Camera {
 		this.filmResolutionY = filmResolutionY;
 	}
 
-	public BufferedImage takePicture(Sphere s) {
+	public BufferedImage takePicture(Sphere s, Light l) {
 		BufferedImage newImage = new BufferedImage(filmResolutionX,
 				filmResolutionY, BufferedImage.TYPE_INT_RGB);
 
@@ -40,12 +40,15 @@ public class Camera {
 				if (intersectionpoint == null) {
 					newImage.setRGB(x, y, 0);
 				} else {
-					newImage.setRGB(x, y, 0xD72448);
+					if (x == 204 && y == 243) {
+						System.out.println();
+					}
+					newImage.setRGB(x, y, s.localReflectionMode(intersectionpoint, l, r).getRGB());
 				}
 
 				if (x == 115 && y == 223) {
-					System.out.println();
-					r.intersectionPoint(s);
+					//System.out.println();
+					//r.intersectionPoint(s);
 				}
 			}
 		}
