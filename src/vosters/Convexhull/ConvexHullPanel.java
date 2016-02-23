@@ -1,4 +1,4 @@
-package convexhull;
+package vosters.Convexhull;
 
 import java.awt.Color;
 import java.awt.Graphics;

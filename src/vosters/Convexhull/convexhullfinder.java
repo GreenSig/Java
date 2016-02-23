@@ -1,4 +1,4 @@
-package convexhull;
+package vosters.Convexhull;
 
 import java.awt.geom.Point2D;
 import java.util.List;

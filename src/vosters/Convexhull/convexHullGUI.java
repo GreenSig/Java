@@ -1,4 +1,4 @@
-package convexhull;
+package vosters.Convexhull;
 
 //Rewritten based on visual editor generated code
 

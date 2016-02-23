@@ -1,4 +1,4 @@
-package dnaalignment;
+package vosters.Dnaalignment;
 
 import java.awt.BorderLayout;
 import java.awt.event.*;

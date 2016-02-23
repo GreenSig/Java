@@ -1,4 +1,4 @@
-package dnaalignment;
+package vosters.Dnaalignment;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package tictactoe;
+package vosters.Tictactoe;
 
 import java.awt.Color;
 import java.awt.Graphics;

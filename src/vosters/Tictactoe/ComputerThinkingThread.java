@@ -1,4 +1,4 @@
-package tictactoe;
+package vosters.Tictactoe;
 
 public class ComputerThinkingThread implements Runnable{
 	public MiniMax computerMove;
