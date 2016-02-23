@@ -1,4 +1,4 @@
-package vosters.program2;
+package vosters.BarcodeScanner;
 
 /** ******************************************************************** */
 /* Scan in a barcode, determine if it is upside down, convert it to      */

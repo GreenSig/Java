@@ -1,4 +1,4 @@
-package vosters.program2;
+package vosters.BarcodeScanner;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

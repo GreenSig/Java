@@ -1,4 +1,4 @@
-package vosters.program4;
+package vosters.Raytracer;
 
 public class Coord3D {
 	private Double x, y, z;

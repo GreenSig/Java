@@ -1,4 +1,4 @@
-package vosters.program3;
+package vosters.WebCrawler;
 
 /** ******************************************************************** */
 /* Starting at a URL inputted by the user, this will work through        */

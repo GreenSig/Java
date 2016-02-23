@@ -1,4 +1,4 @@
-package vosters.program4;
+package vosters.Raytracer;
 
 import java.awt.*;
 import javax.swing.*;
